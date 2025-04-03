@@ -1,0 +1,17 @@
+{
+    "top_secret.txt": {
+        "Admin": "Este es un documento clasificado como TOP SECRET. test 1 :)",
+        "Empleado": "",
+        "Visitante": ""
+    },
+    "confidential.txt": {
+        "Admin": "hola soy admin escribiendo en confidential.txt otra ves",
+        "Empleado": "Informacionn confidencial de la empresa.csoy empleado escriebdo",
+        "Visitante": ""
+    },
+    "public.txt": {
+        "Admin": "Este es un documento publico.",
+        "Empleado": "Este es un documento publico.",
+        "Visitante": "Este es un documento publico."
+    }
+}
