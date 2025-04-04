@@ -1,3 +1,4 @@
+import os
 import tkinter as tk
 from tkinter import ttk, messagebox
 from models import can_read, can_write
@@ -7,7 +8,7 @@ class BellLaPadulaGUI:
     def __init__(self, root):
         self.root = root
         self.root.title("Sistema Bell-LaPadula")
-
+    
         # Variables
         self.selected_user = tk.StringVar()
         self.selected_file = tk.StringVar()
@@ -83,10 +84,10 @@ class BellLaPadulaGUI:
         if not user or not file:
             messagebox.showerror("Error", "Seleccione usuario y archivo.")
             return
-        
         if can_read(user, file):
             try:
-                with open(f'blp/files/{file}', 'r') as f:
+                file_path = os.path.join('blpfiles', file)
+                with open(file_path, 'r') as f:
                     content = f.read()
                 self.text_area.config(state='normal')
                 self.text_area.delete('1.0', tk.END)
@@ -109,7 +110,8 @@ class BellLaPadulaGUI:
         
         if can_write(user, file):
             try:
-                with open(f'blp/files/{file}', 'r') as f:
+                file_path = os.path.join('blpfiles', file)
+                with open(file_path, 'r') as f:
                     content = f.read()
                 self.text_area.config(state='normal')
                 self.text_area.delete('1.0', tk.END)
@@ -127,7 +129,8 @@ class BellLaPadulaGUI:
         file = self.selected_file.get()
         new_content = self.text_area.get('1.0', tk.END)
         try:
-            with open(f'blp/files/{file}', 'w') as f:
+            file_path = os.path.join('blpfiles', file)
+            with open(file_path, 'w') as f:
                 f.write(new_content.strip())
             messagebox.showinfo("Guardado", "Archivo guardado con éxito.")
             self.text_area.config(state='disabled')

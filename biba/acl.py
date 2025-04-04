@@ -1,6 +1,3 @@
-
-# acl.py
-
 # Usuarios y niveles
 users = {
     'Admin': 3,
