@@ -1,7 +1,7 @@
 import json
 import os
 
-JSON_PATH = "biba/files/data.json"
+JSON_PATH = "./files/data.json"
 
 def load_data():
     """Carga los datos desde el archivo JSON."""
